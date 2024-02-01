@@ -1,0 +1,35 @@
+2024-02-01 21:33:00,686:INFO:rpc requests sent for 2 and 99
+2024-02-01 21:33:00,691:DEBUG:add response received for 2 and 99 as 101.0
+2024-02-01 21:33:00,692:DEBUG:sub response received for 2 and 99 as -97.0
+2024-02-01 21:33:00,693:DEBUG:mul response received for 2 and 99 as 198.0
+2024-02-01 21:33:00,693:DEBUG:div response received for 2 and 99 as 0.020202020183205605
+2024-02-01 21:33:00,694:DEBUG:pow response received for 2 and 99 as 6.338253001141147e+29
+2024-02-01 21:33:00,694:INFO:rpc requests completed for 2 and 99
+2024-02-01 21:35:12,342:INFO:rpc requests sent for 2 and 5
+2024-02-01 21:35:12,351:DEBUG:add response received for 2 and 5 as 7.0
+2024-02-01 21:35:12,354:DEBUG:sub response received for 2 and 5 as -3.0
+2024-02-01 21:35:12,355:DEBUG:mul response received for 2 and 5 as 10.0
+2024-02-01 21:35:12,356:DEBUG:div response received for 2 and 5 as 0.4000000059604645
+2024-02-01 21:35:12,357:DEBUG:pow response received for 2 and 5 as 32.0
+2024-02-01 21:35:12,357:INFO:rpc requests completed for 2 and 5
+2024-02-01 21:36:19,453:INFO:rpc requests sent for 10 and 5
+2024-02-01 21:36:19,460:DEBUG:add response received for 10 and 5 as 15.0
+2024-02-01 21:36:19,461:DEBUG:sub response received for 10 and 5 as 5.0
+2024-02-01 21:36:19,462:DEBUG:mul response received for 10 and 5 as 50.0
+2024-02-01 21:36:19,463:DEBUG:div response received for 10 and 5 as 2.0
+2024-02-01 21:36:19,464:DEBUG:pow response received for 10 and 5 as 100000.0
+2024-02-01 21:36:19,464:INFO:rpc requests completed for 10 and 5
+2024-02-01 21:37:52,333:INFO:rpc requests sent for 10 and 5
+2024-02-01 21:37:52,338:DEBUG:add response received for 10 and 5 as 15.0
+2024-02-01 21:37:52,339:DEBUG:sub response received for 10 and 5 as 5.0
+2024-02-01 21:37:52,340:DEBUG:mul response received for 10 and 5 as 50.0
+2024-02-01 21:37:52,340:DEBUG:div response received for 10 and 5 as 2.0
+2024-02-01 21:37:52,341:DEBUG:pow response received for 10 and 5 as 100000.0
+2024-02-01 21:37:52,341:INFO:rpc requests completed for 10 and 5
+2024-02-01 21:38:29,893:INFO:rpc requests sent for 10 and 5
+2024-02-01 21:38:29,898:DEBUG:add response received for 10 and 5 as 15.0
+2024-02-01 21:38:29,899:DEBUG:sub response received for 10 and 5 as 5.0
+2024-02-01 21:38:29,900:DEBUG:mul response received for 10 and 5 as 50.0
+2024-02-01 21:38:29,901:DEBUG:div response received for 10 and 5 as 2.0
+2024-02-01 21:38:29,902:DEBUG:pow response received for 10 and 5 as 100000.0
+2024-02-01 21:38:29,902:INFO:rpc requests completed for 10 and 5

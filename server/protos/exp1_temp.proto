@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package exp1;
+
+service Exp1 {
+ rpc Exp1(Request) returns (Response) {}
+}
+
+message Request {
+  int32 num = 1;
+  int32 pow = 2;
+}
+
+message Response {
+  float result = 1;
+}

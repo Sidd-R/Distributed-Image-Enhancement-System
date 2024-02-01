@@ -1,0 +1,33 @@
+syntax="proto3";
+
+package trial;
+
+// The math service definition.
+service MathService {
+  // adds two numbers
+  rpc Addition(MathRequest) returns (MathResponse) {}
+
+  // subtracts two numbers
+  rpc Substraction(MathRequest) returns (MathResponse) {}
+
+  // multiplies two numbers
+  rpc Multiplication(MathRequest) returns (MathResponse) {}
+
+  // divides two numbers
+  rpc Division(MathRequest) returns (MathResponse) {}
+
+  // power of two numbers
+  rpc Power(MathRequest) returns (MathResponse) {}
+  
+}
+
+// this message is used for all the requests
+message MathRequest {
+  int32 a = 1;
+  int32 b = 2;
+}
+
+// this message is used for all the responses
+message MathResponse {
+  float result = 1;
+}
