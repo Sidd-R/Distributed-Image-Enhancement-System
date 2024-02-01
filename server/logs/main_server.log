@@ -33,3 +33,171 @@
 2024-02-01 21:38:29,901:DEBUG:div response received for 10 and 5 as 2.0
 2024-02-01 21:38:29,902:DEBUG:pow response received for 10 and 5 as 100000.0
 2024-02-01 21:38:29,902:INFO:rpc requests completed for 10 and 5
+2024-02-01 22:09:42,019:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-02-01 22:09:42,020:INFO:[33mPress CTRL+C to quit[0m
+2024-02-01 22:10:02,868:INFO:127.0.0.1 - - [01/Feb/2024 22:10:02] "GET /socket.io/?transport=polling&EIO=4&t=1706805600.811073 HTTP/1.1" 200 -
+2024-02-01 22:10:04,929:INFO:127.0.0.1 - - [01/Feb/2024 22:10:04] "GET /socket.io/?transport=websocket&EIO=4&sid=ZjNhU2rObxCf4P0jAAAA&t=1706805602.8694184 HTTP/1.1" 200 -
+2024-02-01 22:10:45,371:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-02-01 22:10:45,371:INFO:[33mPress CTRL+C to quit[0m
+2024-02-01 22:11:03,757:INFO:127.0.0.1 - - [01/Feb/2024 22:11:03] "GET /socket.io/?transport=polling&EIO=4&t=1706805661.71893 HTTP/1.1" 200 -
+2024-02-01 22:11:05,795:INFO:127.0.0.1 - - [01/Feb/2024 22:11:05] "GET /socket.io/?transport=websocket&EIO=4&sid=OiMRmi0jeVSPj843AAAA&t=1706805663.758661 HTTP/1.1" 200 -
+2024-02-01 22:11:21,872:INFO:127.0.0.1 - - [01/Feb/2024 22:11:21] "GET /socket.io/?transport=polling&EIO=4&t=1706805679.8006313 HTTP/1.1" 200 -
+2024-02-01 22:11:23,964:INFO:127.0.0.1 - - [01/Feb/2024 22:11:23] "GET /socket.io/?transport=websocket&EIO=4&sid=GThI8jGVGKCrFs9-AAAC&t=1706805681.8741663 HTTP/1.1" 200 -
+2024-02-01 22:11:30,925:INFO:127.0.0.1 - - [01/Feb/2024 22:11:30] "GET /socket.io/?transport=polling&EIO=4&t=1706805688.8711748 HTTP/1.1" 200 -
+2024-02-01 22:11:32,993:INFO:127.0.0.1 - - [01/Feb/2024 22:11:32] "GET /socket.io/?transport=websocket&EIO=4&sid=Rs7g3ybNMxI51bpKAAAE&t=1706805690.9265146 HTTP/1.1" 200 -
+2024-02-01 22:12:29,271:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-02-01 22:12:29,272:INFO:[33mPress CTRL+C to quit[0m
+2024-02-01 22:12:32,719:INFO:127.0.0.1 - - [01/Feb/2024 22:12:32] "GET /socket.io/?transport=polling&EIO=4&t=1706805750.6556242 HTTP/1.1" 200 -
+2024-02-01 22:12:34,783:INFO:127.0.0.1 - - [01/Feb/2024 22:12:34] "GET /socket.io/?transport=websocket&EIO=4&sid=AJV3r4Y-5sQtWOzUAAAA&t=1706805752.720816 HTTP/1.1" 200 -
+2024-02-01 22:18:59,842:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-02-01 22:18:59,842:INFO:[33mPress CTRL+C to quit[0m
+2024-02-01 22:19:05,915:INFO:127.0.0.1 - - [01/Feb/2024 22:19:05] "GET /socket.io/?transport=polling&EIO=4&t=1706806143.8419888 HTTP/1.1" 200 -
+2024-02-01 22:19:08,004:INFO:127.0.0.1 - - [01/Feb/2024 22:19:08] "GET /socket.io/?transport=websocket&EIO=4&sid=E5aV8VIpkYOoL6IiAAAA&t=1706806145.9154491 HTTP/1.1" 200 -
+2024-02-01 22:19:08,012:INFO:rpc requests sent for 10 and 5
+2024-02-01 22:22:42,494:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-02-01 22:22:42,495:INFO:[33mPress CTRL+C to quit[0m
+2024-02-01 22:22:46,720:INFO:127.0.0.1 - - [01/Feb/2024 22:22:46] "GET /socket.io/?transport=polling&EIO=4&t=1706806364.642749 HTTP/1.1" 200 -
+2024-02-01 22:22:48,803:INFO:127.0.0.1 - - [01/Feb/2024 22:22:48] "GET /socket.io/?transport=websocket&EIO=4&sid=PBS3KqBgwRRc844iAAAA&t=1706806366.7213142 HTTP/1.1" 200 -
+2024-02-01 22:22:48,810:INFO:rpc requests sent for 10 and 5
+2024-02-01 22:24:35,450:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-02-01 22:24:35,450:INFO:[33mPress CTRL+C to quit[0m
+2024-02-01 22:24:39,561:INFO:127.0.0.1 - - [01/Feb/2024 22:24:39] "GET /socket.io/?transport=polling&EIO=4&t=1706806477.5091398 HTTP/1.1" 200 -
+2024-02-01 22:24:41,627:INFO:127.0.0.1 - - [01/Feb/2024 22:24:41] "GET /socket.io/?transport=websocket&EIO=4&sid=5VkFh_uZO-dfg0nMAAAA&t=1706806479.5630155 HTTP/1.1" 200 -
+2024-02-01 22:24:41,635:INFO:rpc requests sent for 10 and 5
+2024-02-01 22:25:45,489:INFO:127.0.0.1 - - [01/Feb/2024 22:25:45] "GET /socket.io/?transport=polling&EIO=4&t=1706806543.4237952 HTTP/1.1" 200 -
+2024-02-01 22:25:47,583:INFO:127.0.0.1 - - [01/Feb/2024 22:25:47] "GET /socket.io/?transport=websocket&EIO=4&sid=SwTXsvzZdS4gNGZKAAAC&t=1706806545.4911182 HTTP/1.1" 200 -
+2024-02-01 22:25:47,583:INFO:rpc requests sent for 10 and 5
+2024-02-01 22:27:08,039:INFO:127.0.0.1 - - [01/Feb/2024 22:27:08] "GET /socket.io/?transport=polling&EIO=4&t=1706806625.975634 HTTP/1.1" 200 -
+2024-02-01 22:27:10,114:INFO:rpc requests sent for 10 and 5
+2024-02-01 22:27:52,963:INFO:127.0.0.1 - - [01/Feb/2024 22:27:52] "GET /socket.io/?transport=websocket&EIO=4&sid=FgKcUJQYtNGwAesHAAAE&t=1706806628.0403 HTTP/1.1" 200 -
+2024-02-01 22:28:09,882:INFO:127.0.0.1 - - [01/Feb/2024 22:28:09] "GET /socket.io/?transport=polling&EIO=4&t=1706806687.8159344 HTTP/1.1" 200 -
+2024-02-01 22:28:11,969:INFO:rpc requests sent for 10 and 5
+2024-02-01 22:28:11,972:DEBUG:add response received for 10 and 5 as 15.0
+2024-02-01 22:28:11,973:DEBUG:sub response received for 10 and 5 as 5.0
+2024-02-01 22:28:11,973:DEBUG:mul response received for 10 and 5 as 50.0
+2024-02-01 22:28:11,975:DEBUG:div response received for 10 and 5 as 2.0
+2024-02-01 22:28:11,976:DEBUG:pow response received for 10 and 5 as 100000.0
+2024-02-01 22:28:11,976:INFO:rpc requests completed for 10 and 5
+2024-02-01 22:28:11,981:INFO:127.0.0.1 - - [01/Feb/2024 22:28:11] "GET /socket.io/?transport=websocket&EIO=4&sid=opnvLNEbzdO9nSuWAAAG&t=1706806689.8835194 HTTP/1.1" 200 -
+2024-02-01 22:28:29,873:INFO:127.0.0.1 - - [01/Feb/2024 22:28:29] "GET /socket.io/?transport=polling&EIO=4&t=1706806707.8091645 HTTP/1.1" 200 -
+2024-02-01 22:28:31,950:INFO:127.0.0.1 - - [01/Feb/2024 22:28:31] "GET /socket.io/?transport=websocket&EIO=4&sid=6WGfJDnmLncCf_3-AAAI&t=1706806709.8751237 HTTP/1.1" 200 -
+2024-02-01 22:28:31,950:INFO:rpc requests sent for 10 and 5
+2024-02-01 22:28:31,953:DEBUG:add response received for 10 and 5 as 15.0
+2024-02-01 22:28:31,954:DEBUG:sub response received for 10 and 5 as 5.0
+2024-02-01 22:28:31,955:DEBUG:mul response received for 10 and 5 as 50.0
+2024-02-01 22:28:31,956:DEBUG:div response received for 10 and 5 as 2.0
+2024-02-01 22:28:31,957:DEBUG:pow response received for 10 and 5 as 100000.0
+2024-02-01 22:28:31,957:INFO:rpc requests completed for 10 and 5
+2024-02-01 22:30:52,982:INFO:127.0.0.1 - - [01/Feb/2024 22:30:52] "GET /socket.io/?transport=polling&EIO=4&t=1706806850.9018333 HTTP/1.1" 200 -
+2024-02-01 22:30:55,065:INFO:rpc requests sent for 10 and 5
+2024-02-01 22:30:55,070:DEBUG:add response received for 10 and 5 as 15.0
+2024-02-01 22:30:55,073:DEBUG:sub response received for 10 and 5 as 5.0
+2024-02-01 22:30:55,074:DEBUG:mul response received for 10 and 5 as 50.0
+2024-02-01 22:30:55,077:DEBUG:div response received for 10 and 5 as 2.0
+2024-02-01 22:30:55,078:DEBUG:pow response received for 10 and 5 as 100000.0
+2024-02-01 22:30:55,078:INFO:rpc requests completed for 10 and 5
+2024-02-01 22:30:55,110:INFO:127.0.0.1 - - [01/Feb/2024 22:30:55] "GET /socket.io/?transport=websocket&EIO=4&sid=mL7j5nvbRo4HdIECAAAK&t=1706806852.9846854 HTTP/1.1" 200 -
+2024-02-01 22:31:39,418:INFO:127.0.0.1 - - [01/Feb/2024 22:31:39] "GET /socket.io/?transport=polling&EIO=4&t=1706806897.3545353 HTTP/1.1" 200 -
+2024-02-01 22:31:41,499:INFO:rpc requests sent for 10 and 5
+2024-02-01 22:31:41,505:DEBUG:add response received for 10 and 5 as 15.0
+2024-02-01 22:31:41,507:DEBUG:sub response received for 10 and 5 as 5.0
+2024-02-01 22:31:41,509:DEBUG:mul response received for 10 and 5 as 50.0
+2024-02-01 22:31:41,511:DEBUG:div response received for 10 and 5 as 2.0
+2024-02-01 22:31:41,513:DEBUG:pow response received for 10 and 5 as 100000.0
+2024-02-01 22:31:41,513:INFO:rpc requests completed for 10 and 5
+2024-02-01 22:31:41,540:INFO:127.0.0.1 - - [01/Feb/2024 22:31:41] "GET /socket.io/?transport=websocket&EIO=4&sid=9L4-_DYodC2gnpvlAAAM&t=1706806899.4205296 HTTP/1.1" 200 -
+2024-02-01 22:32:08,572:INFO:127.0.0.1 - - [01/Feb/2024 22:32:08] "GET /socket.io/?transport=polling&EIO=4&t=1706806926.5122037 HTTP/1.1" 200 -
+2024-02-01 22:32:10,645:INFO:rpc requests sent for 10 and 5
+2024-02-01 22:32:10,648:DEBUG:add response received for 10 and 5 as 15.0
+2024-02-01 22:32:10,649:DEBUG:sub response received for 10 and 5 as 5.0
+2024-02-01 22:32:10,651:DEBUG:mul response received for 10 and 5 as 50.0
+2024-02-01 22:32:10,651:DEBUG:div response received for 10 and 5 as 2.0
+2024-02-01 22:32:10,652:DEBUG:pow response received for 10 and 5 as 100000.0
+2024-02-01 22:32:10,652:INFO:rpc requests completed for 10 and 5
+2024-02-01 22:32:10,684:INFO:127.0.0.1 - - [01/Feb/2024 22:32:10] "GET /socket.io/?transport=websocket&EIO=4&sid=SKsIrhXHIE1F9hhJAAAO&t=1706806928.574689 HTTP/1.1" 200 -
+2024-02-01 22:33:10,291:INFO:127.0.0.1 - - [01/Feb/2024 22:33:10] "GET /socket.io/?transport=polling&EIO=4&t=1706806988.2173002 HTTP/1.1" 200 -
+2024-02-01 22:33:12,366:INFO:rpc requests sent for 10 and 5
+2024-02-01 22:33:12,372:DEBUG:add response received for 10 and 5 as 15.0
+2024-02-01 22:33:12,374:DEBUG:sub response received for 10 and 5 as 5.0
+2024-02-01 22:33:12,376:DEBUG:mul response received for 10 and 5 as 50.0
+2024-02-01 22:33:12,378:DEBUG:div response received for 10 and 5 as 2.0
+2024-02-01 22:33:12,379:DEBUG:pow response received for 10 and 5 as 100000.0
+2024-02-01 22:33:12,379:INFO:rpc requests completed for 10 and 5
+2024-02-01 22:33:40,205:INFO:127.0.0.1 - - [01/Feb/2024 22:33:40] "GET /socket.io/?transport=websocket&EIO=4&sid=ttZ5f_vHa7KTeIoKAAAQ&t=1706806990.2936506 HTTP/1.1" 200 -
+2024-02-01 22:33:47,733:INFO:127.0.0.1 - - [01/Feb/2024 22:33:47] "GET /socket.io/?transport=polling&EIO=4&t=1706807025.6752696 HTTP/1.1" 200 -
+2024-02-01 22:33:49,797:INFO:rpc requests sent for 10 and 5
+2024-02-01 22:33:49,801:DEBUG:add response received for 10 and 5 as 15.0
+2024-02-01 22:33:49,802:DEBUG:sub response received for 10 and 5 as 5.0
+2024-02-01 22:33:49,805:DEBUG:mul response received for 10 and 5 as 50.0
+2024-02-01 22:33:49,806:DEBUG:div response received for 10 and 5 as 2.0
+2024-02-01 22:33:49,807:DEBUG:pow response received for 10 and 5 as 100000.0
+2024-02-01 22:33:49,808:INFO:rpc requests completed for 10 and 5
+2024-02-01 22:37:41,738:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-02-01 22:37:41,738:INFO:[33mPress CTRL+C to quit[0m
+2024-02-01 22:37:41,952:INFO:127.0.0.1 - - [01/Feb/2024 22:37:41] "GET /socket.io/?transport=polling&EIO=4&t=1706807258.9022071 HTTP/1.1" 200 -
+2024-02-01 22:37:58,587:INFO:127.0.0.1 - - [01/Feb/2024 22:37:58] "GET /socket.io/?transport=websocket&EIO=4&sid=hd43jQLa3kNT5gUOAAAA&t=1706807261.953589 HTTP/1.1" 200 -
+2024-02-01 22:38:15,153:INFO:127.0.0.1 - - [01/Feb/2024 22:38:15] "GET /socket.io/?transport=polling&EIO=4&t=1706807293.080775 HTTP/1.1" 200 -
+2024-02-01 22:38:17,240:INFO:rpc requests sent for 10 and 5
+2024-02-01 22:38:17,251:DEBUG:add response received for 10 and 5 as 15.0
+2024-02-01 22:38:17,253:DEBUG:sub response received for 10 and 5 as 5.0
+2024-02-01 22:38:17,256:DEBUG:mul response received for 10 and 5 as 50.0
+2024-02-01 22:38:17,259:DEBUG:div response received for 10 and 5 as 2.0
+2024-02-01 22:38:17,261:DEBUG:pow response received for 10 and 5 as 100000.0
+2024-02-01 22:38:17,261:INFO:rpc requests completed for 10 and 5
+2024-02-01 22:41:29,971:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-02-01 22:41:29,971:INFO:[33mPress CTRL+C to quit[0m
+2024-02-01 22:42:47,893:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-02-01 22:42:47,893:INFO:[33mPress CTRL+C to quit[0m
+2024-02-01 22:43:00,336:INFO:127.0.0.1 - - [01/Feb/2024 22:43:00] "GET /socket.io/?transport=polling&EIO=4&t=1706807578.2593765 HTTP/1.1" 200 -
+2024-02-01 22:43:55,807:INFO:127.0.0.1 - - [01/Feb/2024 22:43:55] "GET /socket.io/?transport=websocket&EIO=4&sid=jK1HA58lmDSA553RAAAA&t=1706807580.3393974 HTTP/1.1" 200 -
+2024-02-01 22:44:42,372:INFO:127.0.0.1 - - [01/Feb/2024 22:44:42] "GET /socket.io/?transport=polling&EIO=4&t=1706807680.2942245 HTTP/1.1" 200 -
+2024-02-01 22:47:09,408:INFO:127.0.0.1 - - [01/Feb/2024 22:47:09] "GET /socket.io/?transport=polling&EIO=4&t=1706807827.362805 HTTP/1.1" 200 -
+2024-02-01 22:47:22,265:INFO:127.0.0.1 - - [01/Feb/2024 22:47:22] "GET /socket.io/?transport=websocket&EIO=4&sid=SHe6CdXnNzo2W8XZAAAE&t=1706807829.4090912 HTTP/1.1" 200 -
+2024-02-01 22:47:26,591:INFO:127.0.0.1 - - [01/Feb/2024 22:47:26] "GET /socket.io/?transport=websocket&EIO=4&sid=vovm08WUd6aiefwRAAAC&t=1706807682.3745785 HTTP/1.1" 200 -
+2024-02-01 22:48:15,752:INFO:127.0.0.1 - - [01/Feb/2024 22:48:15] "GET /socket.io/?transport=polling&EIO=4&t=1706807893.7098434 HTTP/1.1" 200 -
+2024-02-01 22:48:31,275:INFO:127.0.0.1 - - [01/Feb/2024 22:48:31] "GET /socket.io/?transport=websocket&EIO=4&sid=dCd9-WQoz156I2W4AAAG&t=1706807895.7547054 HTTP/1.1" 200 -
+2024-02-01 22:48:56,208:INFO:127.0.0.1 - - [01/Feb/2024 22:48:56] "GET /socket.io/?transport=polling&EIO=4&t=1706807934.1396687 HTTP/1.1" 200 -
+2024-02-01 22:49:17,143:INFO:rpc requests sent for 10 and 5
+2024-02-01 22:49:17,156:DEBUG:add response received for 10 and 5 as 15.0
+2024-02-01 22:49:17,158:DEBUG:sub response received for 10 and 5 as 5.0
+2024-02-01 22:49:17,161:DEBUG:mul response received for 10 and 5 as 50.0
+2024-02-01 22:49:17,164:DEBUG:div response received for 10 and 5 as 2.0
+2024-02-01 22:49:17,167:DEBUG:pow response received for 10 and 5 as 100000.0
+2024-02-01 22:49:17,167:INFO:rpc requests completed for 10 and 5
+2024-02-01 22:50:01,634:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-02-01 22:50:01,634:INFO:[33mPress CTRL+C to quit[0m
+2024-02-01 22:50:06,367:INFO:127.0.0.1 - - [01/Feb/2024 22:50:06] "GET /socket.io/?transport=polling&EIO=4&t=1706808004.2823884 HTTP/1.1" 200 -
+2024-02-01 22:50:30,901:INFO:127.0.0.1 - - [01/Feb/2024 22:50:30] "GET /socket.io/?transport=websocket&EIO=4&sid=OzMrRThPpItC6lpLAAAA&t=1706808006.3698514 HTTP/1.1" 200 -
+2024-02-01 22:50:43,001:INFO:127.0.0.1 - - [01/Feb/2024 22:50:43] "GET /socket.io/?transport=polling&EIO=4&t=1706808040.9467466 HTTP/1.1" 200 -
+2024-02-01 22:50:47,223:INFO:rpc requests sent for 20 and 3
+2024-02-01 22:50:47,234:DEBUG:add response received for 20 and 3 as 23.0
+2024-02-01 22:50:47,236:DEBUG:sub response received for 20 and 3 as 17.0
+2024-02-01 22:50:47,237:DEBUG:mul response received for 20 and 3 as 60.0
+2024-02-01 22:50:47,239:DEBUG:div response received for 20 and 3 as 6.666666507720947
+2024-02-01 22:50:47,241:DEBUG:pow response received for 20 and 3 as 8000.0
+2024-02-01 22:50:47,241:INFO:rpc requests completed for 20 and 3
+2024-02-01 22:51:27,003:INFO:127.0.0.1 - - [01/Feb/2024 22:51:27] "GET /socket.io/?transport=websocket&EIO=4&sid=53BHyM7JkM1MGnU_AAAC&t=1706808043.0034811 HTTP/1.1" 200 -
+2024-02-01 22:51:30,897:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-02-01 22:51:30,897:INFO:[33mPress CTRL+C to quit[0m
+2024-02-01 22:51:37,701:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-02-01 22:51:37,701:INFO:[33mPress CTRL+C to quit[0m
+2024-02-01 22:51:59,088:INFO:127.0.0.1 - - [01/Feb/2024 22:51:59] "GET /socket.io/?transport=polling&EIO=4&t=1706808117.011752 HTTP/1.1" 200 -
+2024-02-01 22:52:04,483:INFO:rpc requests sent for 21 and 3
+2024-02-01 22:52:04,495:DEBUG:add response received for 21 and 3 as 24.0
+2024-02-01 22:52:04,498:DEBUG:sub response received for 21 and 3 as 18.0
+2024-02-01 22:52:04,500:DEBUG:mul response received for 21 and 3 as 63.0
+2024-02-01 22:52:04,503:DEBUG:div response received for 21 and 3 as 7.0
+2024-02-01 22:52:04,505:DEBUG:pow response received for 21 and 3 as 9261.0
+2024-02-01 22:52:04,505:INFO:rpc requests completed for 21 and 3

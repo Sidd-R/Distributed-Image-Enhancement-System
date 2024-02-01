@@ -15,26 +15,31 @@ class RPCService(math_pb2_grpc.MathServiceServicer):
     def Addition(self, request, context):
         logging.info(f"add request received for {request.a} and {request.b}")
         response = math_pb2.MathResponse(result=request.a + request.b)
+        print(f"add response is {response.result} for {request.a} and {request.b}")
         return response
 
     def Substraction(self, request, context):
         logging.info(f"sub request received for {request.a} and {request.b}")
         response = math_pb2.MathResponse(result=request.a - request.b)
+        print(f"sub response is {response.result} for {request.a} and {request.b}")
         return response
 
     def Multiplication(self, request, context):
         logging.info(f"mul request received for {request.a} and {request.b}")
         response = math_pb2.MathResponse(result=request.a * request.b)
+        print(f"mul response is {response.result} for {request.a} and {request.b}")
         return response
 
     def Division(self, request, context):
         logging.info(f"div request received for {request.a} and {request.b}")
         response = math_pb2.MathResponse(result=request.a / request.b)
+        print(f"div response is {response.result} for {request.a} and {request.b}")
         return response
 
     def Power(self, request, context):
         logging.info(f"pow request received for {request.a} and {request.b}")
         response = math_pb2.MathResponse(result=request.a**request.b)
+        print(f"pow response is {response.result} for {request.a} and {request.b}")
         return response
 
 
@@ -45,7 +50,7 @@ def serve():
     math_pb2_grpc.add_MathServiceServicer_to_server(RPCService(), server)
     server.add_insecure_port("[::]:" + PORT)
     server.start()
-    print("server is running on port: " + PORT)
+    print("Worker server is running on port: " + PORT)
     server.wait_for_termination()
 
 

@@ -2,6 +2,8 @@
 # flask socket io ddocs: https://flask-socketio.readthedocs.io/en/latest/getting_started.html
 from rpc_client import run
 import logging
+from flask import Flask, render_template
+from flask_socketio import SocketIO, send
 
 logging.basicConfig(
     filename="main_server.log",
@@ -9,11 +11,19 @@ logging.basicConfig(
     format="%(asctime)s:%(levelname)s:%(message)s",
 )
 
-if __name__ == "__main__":
-    res = run(10, 5)
+app = Flask(__name__)
+# app.config['SECRET_KEY'] = 'secret!'
+socketio = SocketIO(app)
 
-    print(f"addition result is {res[0]}")
-    print(f"substraction result is {res[1]}")
-    print(f"multiplication result is {res[2]}")
-    print(f"division result is {res[3]}")
-    print(f"power result is {res[4]}")
+
+@socketio.on("math_req")
+def handle_message(data):
+    print(f"received data a {data['a']} and b {data['b']}")
+    res = run(data['a'], data['b'])
+    socketio.emit("math_res", res)
+    # send(res)
+
+
+if __name__ == "__main__":
+    print("Main server is running on port: 5000")
+    socketio.run(app)
