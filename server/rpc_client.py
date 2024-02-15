@@ -1,9 +1,9 @@
 #  grpc client implementation
 import logging
-
 import grpc
 from protos import math_pb2_grpc
 from protos import math_pb2
+import threading
 
 logging.basicConfig(
     filename="./logs/main_server.log",
@@ -18,37 +18,53 @@ def run(num1, num2):
         request = math_pb2.MathRequest(a=num1, b=num2)
 
         logging.info(f"rpc requests sent for {num1} and {num2}")
+        
+        result = []
+        
+        def thread_wrapper(func, request, name, result):
+            print(f"{name} thread started\n")
+            response = func(request)
+            print(f"In {name} thread response is {response.result} for {request.a} and {request.b}\n")
+            print(f"{name} thread completed\n")
+            result.append(response.result)
+            
+        
+        add_thread = threading.Thread(target=thread_wrapper, args=(stub.Addition, request, "add",result))
+        sub_thread = threading.Thread(target=thread_wrapper, args=(stub.Substraction, request, "sub",result))
+        mul_thread = threading.Thread(target=thread_wrapper, args=(stub.Multiplication, request, "mul",result))
+        div_thread = threading.Thread(target=thread_wrapper, args=(stub.Division, request, "div",result))
+        pow_thread = threading.Thread(target=thread_wrapper, args=(stub.Power, request, "pow",result))
 
-        add_response = stub.Addition(request)
-        logging.debug(
-            f"add response received for {num1} and {num2} as {add_response.result}"
-        )
-
-        sub_response = stub.Substraction(request)
-        logging.debug(
-            f"sub response received for {num1} and {num2} as {sub_response.result}"
-        )
-
-        mul_response = stub.Multiplication(request)
-        logging.debug(
-            f"mul response received for {num1} and {num2} as {mul_response.result}"
-        )
-
-        div_response = stub.Division(request)
-        logging.debug(
-            f"div response received for {num1} and {num2} as {div_response.result}"
-        )
-
-        pow_response = stub.Power(request)
-        logging.debug(
-            f"pow response received for {num1} and {num2} as {pow_response.result}"
-        )
+        # add_response = stub.Addition(request)
+        # sub_response = stub.Substraction(request)
+        # mul_response = stub.Multiplication(request)
+        # div_response = stub.Division(request)        
+        # pow_response = stub.Power(request)
+        
+        add_thread.start()
+        sub_thread.start()
+        mul_thread.start()
+        div_thread.start()
+        pow_thread.start()
+        
+        add_thread.join()
+        sub_thread.join()
+        mul_thread.join()
+        div_thread.join()
+        pow_thread.join()
+        
+        
+                
 
         logging.info(f"rpc requests completed for {num1} and {num2}")
-    return [
-        add_response.result,
-        sub_response.result,
-        mul_response.result,
-        div_response.result,
-        pow_response.result,
-    ]
+    # return [
+    #     add_response.result,
+    #     sub_response.result,
+    #     mul_response.result,
+    #     div_response.result,
+    #     pow_response.result,
+    # ]
+    
+    # print(f"result is {result}")
+    
+    return result

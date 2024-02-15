@@ -201,3 +201,49 @@
 2024-02-01 22:52:04,503:DEBUG:div response received for 21 and 3 as 7.0
 2024-02-01 22:52:04,505:DEBUG:pow response received for 21 and 3 as 9261.0
 2024-02-01 22:52:04,505:INFO:rpc requests completed for 21 and 3
+2024-02-15 23:03:29,392:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-02-15 23:03:29,392:INFO:[33mPress CTRL+C to quit[0m
+2024-02-15 23:03:50,116:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-02-15 23:03:50,116:INFO:[33mPress CTRL+C to quit[0m
+2024-02-15 23:03:50,116:INFO: * Restarting with stat
+2024-02-15 23:03:50,594:WARNING: * Debugger is active!
+2024-02-15 23:03:50,597:INFO: * Debugger PIN: 115-590-753
+2024-02-15 23:05:22,618:INFO:127.0.0.1 - - [15/Feb/2024 23:05:22] "GET /socket.io/?transport=polling&EIO=4&t=1708018520.5537353 HTTP/1.1" 200 -
+2024-02-15 23:05:28,487:INFO:rpc requests sent for 4 and 5
+2024-02-15 23:05:28,490:INFO:rpc requests completed for 4 and 5
+2024-02-15 23:06:52,286:INFO: * Detected change in 'C:\\Users\\Siddhant Rao\\Desktop\\disrtibuted_computing_mpr\\server\\rpc_client.py', reloading
+2024-02-15 23:06:52,335:INFO: * Restarting with stat
+2024-02-15 23:06:52,844:WARNING: * Debugger is active!
+2024-02-15 23:06:52,847:INFO: * Debugger PIN: 115-590-753
+2024-02-15 23:06:55,206:INFO:127.0.0.1 - - [15/Feb/2024 23:06:55] "GET /socket.io/?transport=polling&EIO=4&t=1708018613.1629863 HTTP/1.1" 200 -
+2024-02-15 23:06:58,279:INFO:127.0.0.1 - - [15/Feb/2024 23:06:58] "GET /socket.io/?transport=websocket&EIO=4&sid=6FgZwM-VvNeYAqLMAAAA&t=1708018615.2074058 HTTP/1.1" 200 -
+2024-02-15 23:07:02,319:INFO:127.0.0.1 - - [15/Feb/2024 23:07:02] "GET /socket.io/?transport=polling&EIO=4&t=1708018620.2443366 HTTP/1.1" 200 -
+2024-02-15 23:07:06,210:INFO:rpc requests sent for 3 and 7
+2024-02-15 23:07:06,216:INFO:rpc requests completed for 3 and 7
+2024-02-15 23:08:39,449:INFO: * Detected change in 'C:\\Users\\Siddhant Rao\\Desktop\\disrtibuted_computing_mpr\\server\\rpc_client.py', reloading
+2024-02-15 23:08:39,491:INFO: * Restarting with stat
+2024-02-15 23:08:39,970:WARNING: * Debugger is active!
+2024-02-15 23:08:39,973:INFO: * Debugger PIN: 115-590-753
+2024-02-15 23:09:02,445:INFO:127.0.0.1 - - [15/Feb/2024 23:09:02] "GET /socket.io/?transport=polling&EIO=4&t=1708018740.3888223 HTTP/1.1" 200 -
+2024-02-15 23:09:15,182:INFO:rpc requests sent for 8 and 9
+2024-02-15 23:09:15,191:INFO:rpc requests completed for 8 and 9
+2024-02-15 23:11:36,543:INFO: * Detected change in 'C:\\Users\\Siddhant Rao\\Desktop\\disrtibuted_computing_mpr\\server\\rpc_client.py', reloading
+2024-02-15 23:11:36,590:INFO: * Restarting with stat
+2024-02-15 23:11:37,190:WARNING: * Debugger is active!
+2024-02-15 23:11:37,194:INFO: * Debugger PIN: 115-590-753
+2024-02-15 23:11:40,111:INFO:127.0.0.1 - - [15/Feb/2024 23:11:40] "GET /socket.io/?transport=polling&EIO=4&t=1708018898.0374956 HTTP/1.1" 200 -
+2024-02-15 23:11:43,342:INFO:rpc requests sent for 8 and 9
+2024-02-15 23:11:43,358:INFO:rpc requests completed for 8 and 9
+2024-02-15 23:12:14,772:INFO: * Detected change in 'C:\\Users\\Siddhant Rao\\Desktop\\disrtibuted_computing_mpr\\server\\rpc_client.py', reloading
+2024-02-15 23:12:14,832:INFO: * Restarting with stat
+2024-02-15 23:12:15,465:WARNING: * Debugger is active!
+2024-02-15 23:12:15,468:INFO: * Debugger PIN: 115-590-753
+2024-02-15 23:12:18,243:INFO:127.0.0.1 - - [15/Feb/2024 23:12:18] "GET /socket.io/?transport=polling&EIO=4&t=1708018936.1735091 HTTP/1.1" 200 -
+2024-02-15 23:12:25,879:INFO:rpc requests sent for 9 and 9
+2024-02-15 23:12:25,891:INFO:rpc requests completed for 9 and 9
+2024-02-15 23:13:10,297:INFO: * Detected change in 'C:\\Users\\Siddhant Rao\\Desktop\\disrtibuted_computing_mpr\\server\\rpc_client.py', reloading
+2024-02-15 23:13:10,353:INFO: * Restarting with stat
+2024-02-15 23:13:10,770:WARNING: * Debugger is active!
+2024-02-15 23:13:10,773:INFO: * Debugger PIN: 115-590-753

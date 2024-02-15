@@ -26,4 +26,4 @@ def handle_message(data):
 
 if __name__ == "__main__":
     print("Main server is running on port: 5000")
-    socketio.run(app)
+    socketio.run(app,debug=True)

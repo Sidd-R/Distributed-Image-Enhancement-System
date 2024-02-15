@@ -45,6 +45,8 @@ class RPCService(math_pb2_grpc.MathServiceServicer):
 
 def serve():
     PORT = sys.argv[1] if sys.argv[1:] else "50051"
+    
+    id = sys.argv[2] if sys.argv[2:] else "1"
 
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     math_pb2_grpc.add_MathServiceServicer_to_server(RPCService(), server)
