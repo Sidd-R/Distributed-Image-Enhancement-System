@@ -1,5 +1,26 @@
 syntax = "proto3";
 
-service ImageEnhancer {
-  
+package image_enhance;
+
+// The request message containing the RGB image.
+message ImageRequest {
+  bytes image_data =  1;
+  int32 image_width =  2;
+  int32 image_height =  3;
+}
+
+// The response message containing the patches.
+message ImagePatchesResponse {
+  repeated bytes patches =  1;
+}
+
+// The response message containing the merged image.
+message MergedImageResponse {
+  bytes merged_image =  1;
+}
+
+// The service definition.
+service ImageProcessorService {
+  rpc SplitImage(ImageRequest) returns (ImagePatchesResponse);
+  rpc MergePatches(MergedImageResponse) returns (ImageRequest);
 }
