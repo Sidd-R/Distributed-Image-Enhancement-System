@@ -247,3 +247,31 @@
 2024-02-15 23:13:10,353:INFO: * Restarting with stat
 2024-02-15 23:13:10,770:WARNING: * Debugger is active!
 2024-02-15 23:13:10,773:INFO: * Debugger PIN: 115-590-753
+2024-02-16 11:55:47,069:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-02-16 11:55:47,069:INFO:[33mPress CTRL+C to quit[0m
+2024-02-16 11:55:47,069:INFO: * Restarting with stat
+2024-02-16 11:55:47,424:WARNING: * Debugger is active!
+2024-02-16 11:55:47,426:INFO: * Debugger PIN: 127-165-598
+2024-02-16 12:00:09,503:INFO:127.0.0.1 - - [16/Feb/2024 12:00:09] "GET /socket.io/?transport=polling&EIO=4&t=1708065007.446525 HTTP/1.1" 200 -
+2024-02-16 12:00:22,594:INFO:rpc requests sent for 8 and 3
+2024-02-16 12:00:22,603:INFO:rpc requests completed for 8 and 3
+2024-02-16 12:03:38,297:INFO: * Detected change in 'C:\\Users\\8055s\\Documents\\DC\\Distributed-Image-Enhancement-System\\server\\rpc_client.py', reloading
+2024-02-16 12:03:38,337:INFO: * Restarting with stat
+2024-02-16 12:03:38,716:WARNING: * Debugger is active!
+2024-02-16 12:03:38,717:INFO: * Debugger PIN: 127-165-598
+2024-02-16 12:03:41,603:INFO:127.0.0.1 - - [16/Feb/2024 12:03:41] "GET /socket.io/?transport=polling&EIO=4&t=1708065219.5473518 HTTP/1.1" 200 -
+2024-02-16 12:03:52,306:INFO:127.0.0.1 - - [16/Feb/2024 12:03:52] "GET /socket.io/?transport=websocket&EIO=4&sid=ol2V7g5ljYwqU5suAAAA&t=1708065221.6043487 HTTP/1.1" 200 -
+2024-02-16 12:04:00,198:INFO:127.0.0.1 - - [16/Feb/2024 12:04:00] "GET /socket.io/?transport=polling&EIO=4&t=1708065238.1646948 HTTP/1.1" 200 -
+2024-02-16 12:04:05,425:INFO:rpc requests sent for 6 and 3
+2024-02-16 12:04:05,425:INFO:add thread started
+2024-02-16 12:04:05,425:INFO:sub thread started
+2024-02-16 12:04:05,425:INFO:mul thread started
+2024-02-16 12:04:05,425:INFO:div thread started
+2024-02-16 12:04:05,429:INFO:pow thread started
+2024-02-16 12:04:05,433:INFO:In mul thread response is 18.0 for 6 and 3
+2024-02-16 12:04:05,433:INFO:In add thread response is 9.0 for 6 and 3
+2024-02-16 12:04:05,433:INFO:In sub thread response is 3.0 for 6 and 3
+2024-02-16 12:04:05,433:INFO:In div thread response is 2.0 for 6 and 3
+2024-02-16 12:04:05,433:INFO:In pow thread response is 216.0 for 6 and 3
+2024-02-16 12:04:05,433:INFO:rpc requests completed for 6 and 3

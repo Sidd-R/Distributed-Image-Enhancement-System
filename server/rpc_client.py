@@ -23,9 +23,11 @@ def run(num1, num2):
         
         def thread_wrapper(func, request, name, result):
             print(f"{name} thread started\n")
+            logging.info(f"{name} thread started")
             response = func(request)
             print(f"In {name} thread response is {response.result} for {request.a} and {request.b}\n")
-            print(f"{name} thread completed\n")
+            logging.info(f"In {name} thread response is {response.result} for {request.a} and {request.b}")
+            # print(f"{name} thread completed\n")
             result.append(response.result)
             
         
