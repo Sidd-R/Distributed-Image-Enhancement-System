@@ -1,5 +1,21 @@
 syntax = "proto3";
 
+// The image request message
+message ImageRequest {
+  string id = 1;
+  bytes image_data  = 2;
+  int32 lamport_timestamp = 3;
+}
+
+
+// the image response message
+message ImageResponse {
+  string id = 1;
+  bytes image_data = 2;
+  int32 lamport_timestamp = 3;
+}
+
 service ImageEnhancer {
-  
+  // Enhance the image
+  rpc EnhanceImage(ImageRequest) returns (ImageResponse);
 }
