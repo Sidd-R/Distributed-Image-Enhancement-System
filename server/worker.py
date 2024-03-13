@@ -5,6 +5,7 @@ import sys
 # sys.path.append(
 #     os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 from concurrent import futures
+from image_utils.image_filter import ImageFilter
 import logging
 import grpc
 from protos import math_pb2
@@ -52,17 +53,22 @@ class RPCService(math_pb2_grpc.MathServiceServicer):
 class ImageEnhancerServicer(image_enhance_pb2_grpc.ImageEnhancerServicer):
     lamport_timestamp = 0
     
-    def process_part(self, part, processed_parts):
+    def process_part(self, part, processed_parts, choice):
         # Convert part to black and white
-        processed_part = part.convert('L')
-        processed_parts.append(processed_part)
+        # processed_part = part.convert('L')
+        # processed_parts.append(processed_part)
+        image_filter_instance = ImageFilter()
+        filtered_image = image_filter_instance.filter(image=part, choice=choice)
+        processed_parts.append(filtered_image)
     
     def EnhanceImage(self, request, context):
         logging.info(f"image enhance request received for {request.id}")
         image_bytes = request.image_data
+        choice = request.choice
 
         # Decode the image using Pillow (PIL)
         image = Image.open(io.BytesIO(image_bytes))
+        # image = Image.open('wumpus.jpeg')
         
         num_parts = 4  # Example value, adjust as needed
         width, height = image.size
@@ -76,7 +82,7 @@ class ImageEnhancerServicer(image_enhance_pb2_grpc.ImageEnhancerServicer):
         processed_parts = []
         threads = []
         for part in parts:
-            thread = threading.Thread(target=self.process_part, args=(part, processed_parts))
+            thread = threading.Thread(target=self.process_part, args=(part, processed_parts, choice))
             threads.append(thread)
             thread.start()
 
@@ -89,7 +95,7 @@ class ImageEnhancerServicer(image_enhance_pb2_grpc.ImageEnhancerServicer):
             merged_image.paste(part, (0, i * part_height))
 
         # Convert merged image to black and white
-        merged_image = merged_image.convert('L')
+        # merged_image = merged_image.convert('L')
 
         # Convert merged image back to bytes
         with io.BytesIO() as output:
@@ -116,4 +122,5 @@ def serve():
 
 
 if __name__ == "__main__":
+
     serve()

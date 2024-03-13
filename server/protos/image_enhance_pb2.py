@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13image_enhance.proto\"I\n\x0cImageRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x12\n\nimage_data\x18\x02 \x01(\x0c\x12\x19\n\x11lamport_timestamp\x18\x03 \x01(\x05\"J\n\rImageResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x12\n\nimage_data\x18\x02 \x01(\x0c\x12\x19\n\x11lamport_timestamp\x18\x03 \x01(\x05\x32>\n\rImageEnhancer\x12-\n\x0c\x45nhanceImage\x12\r.ImageRequest\x1a\x0e.ImageResponseb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x13image_enhance.proto\"Y\n\x0cImageRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x12\n\nimage_data\x18\x02 \x01(\x0c\x12\x19\n\x11lamport_timestamp\x18\x03 \x01(\x05\x12\x0e\n\x06\x63hoice\x18\x04 \x01(\x05\"J\n\rImageResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x12\n\nimage_data\x18\x02 \x01(\x0c\x12\x19\n\x11lamport_timestamp\x18\x03 \x01(\x05\x32>\n\rImageEnhancer\x12-\n\x0c\x45nhanceImage\x12\r.ImageRequest\x1a\x0e.ImageResponseb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -22,9 +22,9 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'image_enhance_pb2', _global
 if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._options = None
   _globals['_IMAGEREQUEST']._serialized_start=23
-  _globals['_IMAGEREQUEST']._serialized_end=96
-  _globals['_IMAGERESPONSE']._serialized_start=98
-  _globals['_IMAGERESPONSE']._serialized_end=172
-  _globals['_IMAGEENHANCER']._serialized_start=174
-  _globals['_IMAGEENHANCER']._serialized_end=236
+  _globals['_IMAGEREQUEST']._serialized_end=112
+  _globals['_IMAGERESPONSE']._serialized_start=114
+  _globals['_IMAGERESPONSE']._serialized_end=188
+  _globals['_IMAGEENHANCER']._serialized_start=190
+  _globals['_IMAGEENHANCER']._serialized_end=252
 # @@protoc_insertion_point(module_scope)
