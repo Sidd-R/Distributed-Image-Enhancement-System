@@ -4,7 +4,39 @@
   Plugins:
     - @tailwindcss/forms
 */}
+import React, { useState } from 'react';
+
 function Home (){
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await fetch('http://localhost:5000/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, email }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to sign up');
+      }
+
+      const user = await response.json();
+      console.log('User signed up successfully:', user);
+      // Optionally, you can redirect to another page or show a success message
+      location.href = '/gallery';
+    } catch (error) {
+      console.error('Error signing up:', error);
+      // Handle error, show error message, etc.
+    }
+  };
+
+
     return (
     <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
     <div className="mx-auto max-w-lg">
@@ -14,8 +46,20 @@ function Home (){
         
         </p> */}
 
-        <form action="#" className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8">
-        <p className="text-center text-lg font-medium">Sign in to your account</p>
+        <form onSubmit={handleSubmit} className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8">
+        <p className="text-center text-lg font-medium">Sign up now !</p>
+        
+        <div>
+            <label htmlFor="username" className="sr-only">Password</label>
+
+            <div className="relative">
+            <input
+                type="text"
+                className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                placeholder="Enter Username"
+            />
+            </div>
+        </div>
 
         <div>
             <label htmlFor="email" className="sr-only">Email</label>
@@ -46,51 +90,16 @@ function Home (){
             </div>
         </div>
 
-        <div>
-            <label htmlFor="password" className="sr-only">Password</label>
-
-            <div className="relative">
-            <input
-                type="password"
-                className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-                placeholder="Enter password"
-            />
-
-            <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
-                <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="size-4 text-gray-400"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                >
-                <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-                <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                />
-                </svg>
-            </span>
-            </div>
-        </div>
-
         <button
             type="submit"
             className="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
         >
-            Sign in
+            Sign up
         </button>
 
         <p className="text-center text-sm text-gray-500">
-            No account?
-            <a className="underline" href="#">Sign up</a>
+            Already have an account?
+            <a className="underline" href="#">Sign in</a>
         </p>
         </form>
     </div>

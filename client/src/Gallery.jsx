@@ -1,4 +1,98 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, use } from "react";
+
+function Radio() {
+  const [selectedOption, setSelectedOption] = useState('ColorBlack');
+
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+  };  
+
+  return (
+    <fieldset className="flex flex-wrap gap-3">
+      <legend className="sr-only">Color</legend>
+
+      <div>
+        <label
+          htmlFor="ColorBlack"
+          className={`flex cursor-pointer items-center justify-center rounded-md border border-gray-100 bg-white px-3 py-2 text-gray-900 hover:border-gray-200 ${
+            selectedOption === 'ColorBlack' && 'bg-blue-400 border-blue-500 text-white'
+          }`}
+        >
+          <input
+            type="radio"
+            name="ColorOption"
+            value="ColorBlack"
+            id="ColorBlack"
+            className="sr-only"
+            checked={selectedOption === 'ColorBlack'}
+            onChange={handleOptionChange}
+          />
+          <p className="text-sm font-medium">Erode</p>
+        </label>
+      </div>
+
+      <div>
+        <label
+          htmlFor="ColorRed"
+          className={`flex cursor-pointer items-center justify-center rounded-md border border-gray-100 bg-white px-3 py-2 text-gray-900 hover:border-gray-200 ${
+            selectedOption === 'ColorRed' && 'border-blue-500 bg-blue-400 text-white'
+          }`}
+        >
+          <input
+            type="radio"
+            name="ColorOption"
+            value="ColorRed"
+            id="ColorRed"
+            className="sr-only"
+            checked={selectedOption === 'ColorRed'}
+            onChange={handleOptionChange}
+          />
+          <p className="text-sm font-medium">Dilate</p>
+        </label>
+      </div>
+
+      <div>
+        <label
+          htmlFor="ColorBlue"
+          className={`flex cursor-pointer items-center justify-center rounded-md border border-gray-100 bg-white px-3 py-2 text-gray-900 hover:border-gray-200 ${
+            selectedOption === 'ColorBlue' && 'border-blue-500 bg-blue-400 text-white'
+          }`}
+        >
+          <input
+            type="radio"
+            name="ColorOption"
+            value="ColorBlue"
+            id="ColorBlue"
+            className="sr-only"
+            checked={selectedOption === 'ColorBlue'}
+            onChange={handleOptionChange}
+          />
+          <p className="text-sm font-medium">Morphological</p>
+        </label>
+      </div>
+
+      <div>
+        <label
+          htmlFor="ColorGold"
+          className={`flex cursor-pointer items-center justify-center rounded-md border border-gray-100 bg-white px-3 py-2 text-gray-900 hover:border-gray-200 ${
+            selectedOption === 'ColorGold' && 'border-blue-500 bg-blue-400 text-white'
+          }`}
+        >
+          <input
+            type="radio"
+            name="ColorOption"
+            value="ColorGold"
+            id="ColorGold"
+            className="sr-only"
+            checked={selectedOption === 'ColorGold'}
+            onChange={handleOptionChange}
+          />
+          <p className="text-sm font-medium">Denoise</p>
+        </label>
+      </div>
+    </fieldset>
+  );
+}
 
 function Upload() {
   const [file, setFile] = useState(null);
@@ -6,6 +100,8 @@ function Upload() {
   const handleFileChange = (event) => {
     const selectedFile = event.target.files[0];
     setFile(selectedFile);
+    // const imageUrl = URL.createObjectURL(selectedFile);
+    // setPreviewUrl(imageUrl);
   };
 
   const handleSubmit = async () => {
@@ -26,12 +122,13 @@ function Upload() {
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
+      location.reload();
       const data = await response.json();
-      console.log("Image uploaded successfully:", data);
+      console.log("Image uploaded successfully:", data); // Update images state in Gallery
     } catch (error) {
       console.error("Error uploading image:", error);
     }
-  };
+  };  
 
   return (
     <div className="rounded-lg bg-white p-8 shadow-2xl">
@@ -67,7 +164,7 @@ function Upload() {
           <input id="file" type="file" className="hidden" onChange={handleFileChange} />
         </div>
       </div>
-
+      <Radio/>
       <button onClick={handleSubmit} className="mt-4 bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-md">
         Upload Image
       </button>
@@ -75,13 +172,23 @@ function Upload() {
   );
 }
 
-
 function Gallery() {
   const [showUploadModal, setShowUploadModal] = useState(false);
-
   const toggleUploadModal = () => {
     setShowUploadModal(!showUploadModal);
   };
+  const [tempImages, setTempImages] = useState([]);
+  const getImageData = async() =>
+  {
+    const response = await fetch("http://localhost:5000/image")
+    const data = await response.json();
+    setTempImages(data);
+    console.log(data);
+  }
+
+  useEffect(() => {
+    getImageData();
+  }, []);
 
   return (
     <section>
@@ -92,7 +199,7 @@ function Gallery() {
 
         <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {/* Gallery items */}
-          <li>
+          {/* <li>
               <a href="#" class="group block relative overflow-hidden">
                 <img
                   src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
@@ -105,50 +212,56 @@ function Gallery() {
                   </button>
                 </div>
               </a>
-          </li>
-          <li>
-              <a href="#" class="group block relative overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                  alt=""
-                  class="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
-                />
-                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 bg-black bg-opacity-50">
-                  <button class="text-white font-bold text-lg">
-                    Apply Filter
-                  </button>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="group block relative overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                  alt=""
-                  class="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
-                />
-                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 bg-black bg-opacity-50">
-                  <button class="text-white font-bold text-lg">
-                    Apply Filter
-                  </button>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="group block relative overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                  alt=""
-                  class="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
-                />
-                <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 bg-black bg-opacity-50">
-                  <button class="text-white font-bold text-lg">
-                    Apply Filter
-                  </button>
-                </div>
-              </a>
-            </li>
-
+          </li> */}
+          {tempImages.map((image, index) => (
+              <li key={index}>
+              <div className="relative group">
+                <a href={`http://localhost:5000/${image.image_path}`} className="block relative overflow-hidden">
+                  <img
+                    src={`http://localhost:5000/${image.image_path}`}
+                    alt=""
+                    className="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 bg-black bg-opacity-50">
+                    <button className="text-white font-bold text-lg">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6 mr-1"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 21l-1.453-1.388C5.24 15.37 2 12.35 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.85-3.24 6.87-8.547 11.112L12 21z"
+                        />
+                      </svg>
+                      {image.likes == null ? 0 : image.likes}
+                    </button>
+                  </div>
+                </a>
+                <button className="bg-red-500 text-white px-4 py-2 rounded-full absolute bottom-4 right-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 21l-1.453-1.388C5.24 15.37 2 12.35 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.85-3.24 6.87-8.547 11.112L12 21z"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </li>             
+            
+            ))}
         </ul>
       </div>
 
@@ -161,7 +274,7 @@ function Gallery() {
       {showUploadModal && (
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-50">
           <div className="z-10 rounded-lg bg-white p-8 shadow-2xl">
-            <Upload />
+          <Upload />
             <button onClick={toggleUploadModal} className="mt-4 bg-red-500 text-white px-4 py-2 rounded-md">Close</button>
           </div>
         </div>
