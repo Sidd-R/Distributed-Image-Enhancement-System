@@ -21,7 +21,7 @@ logging.basicConfig(
     format="%(asctime)s:%(levelname)s:%(message)s",
 )
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='temp',  static_url_path='')
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///project.db"
 db.init_app(app)
 socketio = SocketIO(app)
@@ -57,7 +57,7 @@ class Image(db.Model):
     # likes = db.Column(db.Integer, unique=False, nullable=True)
 
     def __repr__(self):
-        return "<Image %r>" % self.image_path
+        return "<Image %r>" % self.image_path   
     
     def as_dict(self):
        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
@@ -111,8 +111,7 @@ def create_image():
     temp_image_path = f"./temp/uploaded_image_{round(time.time())}.jpeg"
     file.save(temp_image_path)
 
-    
-    image = Image(image_path=temp_image_path, user_id=user_id)
+    image = Image(image_path=temp_image_path[7:],user_id=user_id)
     db.session.add(image)
     db.session.commit()
     return jsonify(image)
