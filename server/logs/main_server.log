@@ -391,3 +391,66 @@
 2024-05-03 03:21:10,506:INFO:127.0.0.1 - - [03/May/2024 03:21:10] "[36mGET /uploaded_image_1714685725.jpeg HTTP/1.1[0m" 304 -
 2024-05-03 03:21:55,424:INFO:127.0.0.1 - - [03/May/2024 03:21:55] "GET /image HTTP/1.1" 200 -
 2024-05-03 03:22:04,736:INFO:127.0.0.1 - - [03/May/2024 03:22:04] "GET /image HTTP/1.1" 200 -
+2024-05-03 03:48:53,504:INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-05-03 03:48:53,504:INFO:[33mPress CTRL+C to quit[0m
+2024-05-03 03:48:53,505:INFO: * Restarting with stat
+2024-05-03 03:48:54,062:WARNING: * Debugger is active!
+2024-05-03 03:48:54,066:INFO: * Debugger PIN: 194-298-324
+2024-05-03 03:49:00,214:INFO:127.0.0.1 - - [03/May/2024 03:49:00] "OPTIONS /register HTTP/1.1" 200 -
+2024-05-03 03:49:00,484:INFO:127.0.0.1 - - [03/May/2024 03:49:00] "POST /register HTTP/1.1" 200 -
+2024-05-03 03:49:00,749:INFO:127.0.0.1 - - [03/May/2024 03:49:00] "GET /image HTTP/1.1" 200 -
+2024-05-03 03:49:01,060:INFO:127.0.0.1 - - [03/May/2024 03:49:01] "GET /image HTTP/1.1" 200 -
+2024-05-03 03:49:01,089:INFO:127.0.0.1 - - [03/May/2024 03:49:01] "[36mGET /uploaded_image_1714685725.jpeg HTTP/1.1[0m" 304 -
+2024-05-03 03:57:21,104:INFO: * Detected change in 'C:\\Users\\8055s\\Documents\\DC\\Distributed-Image-Enhancement-System\\server\\main.py', reloading
+2024-05-03 03:57:21,188:INFO: * Restarting with stat
+2024-05-03 03:57:21,780:WARNING: * Debugger is active!
+2024-05-03 03:57:21,783:INFO: * Debugger PIN: 194-298-324
+2024-05-03 03:57:50,580:INFO:127.0.0.1 - - [03/May/2024 03:57:50] "GET /image HTTP/1.1" 200 -
+2024-05-03 03:58:48,514:INFO:127.0.0.1 - - [03/May/2024 03:58:48] "[33mGET /image/like HTTP/1.1[0m" 404 -
+2024-05-03 03:58:58,612:INFO: * Detected change in 'C:\\Users\\8055s\\Documents\\DC\\Distributed-Image-Enhancement-System\\server\\main.py', reloading
+2024-05-03 03:58:58,700:INFO: * Restarting with stat
+2024-05-03 03:58:59,286:WARNING: * Debugger is active!
+2024-05-03 03:58:59,291:INFO: * Debugger PIN: 194-298-324
+2024-05-03 03:59:04,722:INFO:127.0.0.1 - - [03/May/2024 03:59:04] "[31m[1mPOST /image/like HTTP/1.1[0m" 415 -
+2024-05-03 04:00:03,962:INFO: * Detected change in 'C:\\Users\\8055s\\Documents\\DC\\Distributed-Image-Enhancement-System\\server\\main.py', reloading
+2024-05-03 04:00:04,140:INFO: * Restarting with stat
+2024-05-03 04:00:04,688:WARNING: * Debugger is active!
+2024-05-03 04:00:04,688:INFO: * Debugger PIN: 194-298-324
+2024-05-03 04:00:12,855:INFO:127.0.0.1 - - [03/May/2024 04:00:12] "[35m[1mPOST /image/like HTTP/1.1[0m" 500 -
+2024-05-03 04:03:16,280:INFO: * Detected change in 'C:\\Users\\8055s\\Documents\\DC\\Distributed-Image-Enhancement-System\\server\\main.py', reloading
+2024-05-03 04:03:16,353:INFO: * Restarting with stat
+2024-05-03 04:03:16,926:WARNING: * Debugger is active!
+2024-05-03 04:03:16,929:INFO: * Debugger PIN: 194-298-324
+2024-05-03 04:06:26,423:INFO: * Detected change in 'C:\\Users\\8055s\\Documents\\DC\\Distributed-Image-Enhancement-System\\server\\main.py', reloading
+2024-05-03 04:06:26,506:INFO: * Restarting with stat
+2024-05-03 04:06:27,072:WARNING: * Debugger is active!
+2024-05-03 04:06:27,075:INFO: * Debugger PIN: 194-298-324
+2024-05-03 04:06:36,211:INFO:127.0.0.1 - - [03/May/2024 04:06:36] "GET /image HTTP/1.1" 200 -
+2024-05-03 04:06:49,092:INFO: * Detected change in 'C:\\Users\\8055s\\Documents\\DC\\Distributed-Image-Enhancement-System\\server\\main.py', reloading
+2024-05-03 04:06:49,174:INFO: * Restarting with stat
+2024-05-03 04:06:49,723:WARNING: * Debugger is active!
+2024-05-03 04:06:49,737:INFO: * Debugger PIN: 194-298-324
+2024-05-03 04:06:52,406:INFO:127.0.0.1 - - [03/May/2024 04:06:52] "GET /image HTTP/1.1" 200 -
+2024-05-03 04:07:04,371:INFO: * Detected change in 'C:\\Users\\8055s\\Documents\\DC\\Distributed-Image-Enhancement-System\\server\\main.py', reloading
+2024-05-03 04:07:04,432:INFO: * Restarting with stat
+2024-05-03 04:07:04,970:WARNING: * Debugger is active!
+2024-05-03 04:07:04,970:INFO: * Debugger PIN: 194-298-324
+2024-05-03 04:07:42,623:INFO: * Detected change in 'C:\\Users\\8055s\\Documents\\DC\\Distributed-Image-Enhancement-System\\server\\main.py', reloading
+2024-05-03 04:07:42,706:INFO: * Restarting with stat
+2024-05-03 04:07:43,266:WARNING: * Debugger is active!
+2024-05-03 04:07:43,269:INFO: * Debugger PIN: 194-298-324
+2024-05-03 04:07:49,537:INFO:127.0.0.1 - - [03/May/2024 04:07:49] "[35m[1mPOST /image/like HTTP/1.1[0m" 500 -
+2024-05-03 04:08:43,684:INFO: * Detected change in 'C:\\Users\\8055s\\Documents\\DC\\Distributed-Image-Enhancement-System\\server\\main.py', reloading
+2024-05-03 04:08:43,748:INFO: * Restarting with stat
+2024-05-03 04:08:44,286:WARNING: * Debugger is active!
+2024-05-03 04:08:44,286:INFO: * Debugger PIN: 194-298-324
+2024-05-03 04:08:49,788:INFO:127.0.0.1 - - [03/May/2024 04:08:49] "POST /image/like HTTP/1.1" 200 -
+2024-05-03 04:08:54,625:INFO:127.0.0.1 - - [03/May/2024 04:08:54] "GET /image HTTP/1.1" 200 -
+2024-05-03 04:16:57,209:INFO:127.0.0.1 - - [03/May/2024 04:16:57] "GET /image HTTP/1.1" 200 -
+2024-05-03 04:16:57,461:INFO:127.0.0.1 - - [03/May/2024 04:16:57] "GET /image HTTP/1.1" 200 -
+2024-05-03 04:16:57,555:INFO:127.0.0.1 - - [03/May/2024 04:16:57] "[36mGET /uploaded_image_1714685725.jpeg HTTP/1.1[0m" 304 -
+2024-05-03 04:16:59,329:INFO:127.0.0.1 - - [03/May/2024 04:16:59] "POST /image/like HTTP/1.1" 200 -
+2024-05-03 04:16:59,742:INFO:127.0.0.1 - - [03/May/2024 04:16:59] "GET /image HTTP/1.1" 200 -
+2024-05-03 04:16:59,746:INFO:127.0.0.1 - - [03/May/2024 04:16:59] "[36mGET /uploaded_image_1714685725.jpeg HTTP/1.1[0m" 304 -
+2024-05-03 04:16:59,999:INFO:127.0.0.1 - - [03/May/2024 04:16:59] "GET /image HTTP/1.1" 200 -

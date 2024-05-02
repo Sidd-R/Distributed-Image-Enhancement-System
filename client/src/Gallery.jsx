@@ -177,6 +177,7 @@ function Gallery() {
   const toggleUploadModal = () => {
     setShowUploadModal(!showUploadModal);
   };
+  
   const [tempImages, setTempImages] = useState([]);
   const getImageData = async() =>
   {
@@ -185,6 +186,21 @@ function Gallery() {
     setTempImages(data);
     console.log(data);
   }
+
+  const handleLike = async (id) => {
+    try {
+      const formData = new FormData();
+      formData.append('id', id); 
+      const response = await fetch('http://localhost:5000/image/like', {
+        method: 'POST',
+        body: formData,
+      });
+  
+      if (!response.ok) {throw new Error('Failed to like image');}
+      console.log('Image liked successfully');
+      location.reload();
+      } catch (error) {console.error('Error liking image:', error);}
+  };
 
   useEffect(() => {
     getImageData();
@@ -242,7 +258,7 @@ function Gallery() {
                     </button>
                   </div>
                 </a>
-                <button className="bg-red-500 text-white px-4 py-2 rounded-full absolute bottom-4 right-4">
+                <button onClick={() => handleLike(image.id)} className="bg-red-500 text-white px-4 py-2 rounded-full absolute bottom-4 right-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6"
