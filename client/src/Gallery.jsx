@@ -1,6 +1,38 @@
 import React, { useState } from "react";
 
 function Upload() {
+  const [file, setFile] = useState(null);
+
+  const handleFileChange = (event) => {
+    const selectedFile = event.target.files[0];
+    setFile(selectedFile);
+  };
+
+  const handleSubmit = async () => {
+    if (!file) {
+      console.log("No file selected!");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('user_id','1');
+    formData.append("image", file);
+
+    try {
+      const response = await fetch("http://localhost:5000/image", {
+        method: "POST",
+        body: formData,
+      });
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await response.json();
+      console.log("Image uploaded successfully:", data);
+    } catch (error) {
+      console.error("Error uploading image:", error);
+    }
+  };
+
   return (
     <div className="rounded-lg bg-white p-8 shadow-2xl">
       <h2 className="text-lg font-bold">Are you sure you want to do that?</h2>
@@ -32,12 +64,17 @@ function Upload() {
               or drag and drop your file here
             </p>
           </label>
-          <input id="file" type="file" className="hidden" />
+          <input id="file" type="file" className="hidden" onChange={handleFileChange} />
         </div>
       </div>
+
+      <button onClick={handleSubmit} className="mt-4 bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-md">
+        Upload Image
+      </button>
     </div>
   );
 }
+
 
 function Gallery() {
   const [showUploadModal, setShowUploadModal] = useState(false);

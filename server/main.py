@@ -9,8 +9,11 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase
 from dataclasses import dataclass
 import time
+from flask_cors import CORS,cross_origin
+
 
 db = SQLAlchemy()
+
 
 logging.basicConfig(
     filename="main_server.log",
@@ -22,7 +25,7 @@ app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///project.db"
 db.init_app(app)
 socketio = SocketIO(app)
-
+CORS(app)
 
 @dataclass
 class User(db.Model):
@@ -45,11 +48,13 @@ class Image(db.Model):
     id : int
     image_path: str
     processed_image_path: str
+    # likes: int
     
     id = db.Column(db.Integer, primary_key=True)
     image_path = db.Column(db.String(120), unique=True, nullable=False)
     processed_image_path = db.Column(db.String(120), unique=True, nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    # likes = db.Column(db.Integer, unique=False, nullable=True)
 
     def __repr__(self):
         return "<Image %r>" % self.image_path
@@ -97,6 +102,7 @@ def process_image(data):
     print(f"Lamport clock request completed at {rpc.lamport_timestamp}")
 
 @app.post("/image")
+@cross_origin(supports_credentials=True)
 def create_image():
     # receive form data with image and user id
     data = request.form
@@ -104,6 +110,7 @@ def create_image():
     file = request.files['image']
     temp_image_path = f"./temp/uploaded_image_{round(time.time())}.jpeg"
     file.save(temp_image_path)
+
     
     image = Image(image_path=temp_image_path, user_id=user_id)
     db.session.add(image)
@@ -155,12 +162,15 @@ def index():
 
 if __name__ == "__main__":
     print("Main server is running on port: 5000")
-    socketio.run(app,debug=True)
-    # app.run(debug=True)
+    # socketio.run(app,debug=True)
+    app.run(debug=True) 
+    # socketio.run(app, host='0.0.0.0', debug=True)
     # with app.app_context():
         # db.create_all()
         
     # create users
-    
+
+
+
     
     
