@@ -8,6 +8,8 @@ from protos import image_enhance_pb2
 import threading
 from PIL import Image
 import io
+import datetime
+import sys
 
 logging.basicConfig(
     filename="./logs/main_server.log",
@@ -76,27 +78,34 @@ logging.basicConfig(
 #     return result
 
 class RpcClient:
-    
-    def __init__(self) -> None:
-        self.lamport_timestamp = 0
+    def __init__(self, ts=0) -> None:
+        self.lamport_timestamp = ts
+        self.id = 22
 
-    def enhance_image(self):
-        image_path = "wumpus.jpeg"
+    def enhance_image(self,image_path):
+        # image_path = "wumpus.jpeg"
         with open(image_path, "rb") as f:
             image_data = f.read()
             
             with grpc.insecure_channel("localhost:50051") as channel:
                 stub = image_enhance_pb2_grpc.ImageEnhancerStub(channel)
                 request = image_enhance_pb2.ImageRequest(id="1", image_data=image_data,lamport_timestamp=self.lamport_timestamp)
-                logging.info(f"image enhance request sent for {request.id}")
+                logging.info(f"image enhance request sent for {self.id} at lamport timestamp {request.lamport_timestamp}")
                 response = stub.EnhanceImage(request)
                 image = Image.open(io.BytesIO(response.image_data))
                 self.lamport_timestamp = max(self.lamport_timestamp,response.lamport_timestamp)
-                logging.info(f"image enhance response received for {request.id} at lamport timestamp {response.lamport_timestamp}")
+                logging.info(f"image enhance response received for {self.id}  at lamport timestamp {response.lamport_timestamp}")
                 
-                image.show()
-                # return response.image_path
+                # save image in processed_image folder with current timestamp
+                timestamp = str(datetime.datetime.now())
+                timestamp = timestamp.replace(":","_")
+                processed_img_path = f"./processed_image/{timestamp}.jpeg"
+                image.save(processed_img_path)    
+                
+                return processed_img_path 
 
 if __name__ == "__main__":
     client = RpcClient()
-    client.enhance_image()
+    
+    while input("Do you want to enhance image? (y/n): ") == "y":
+        client.enhance_image()
