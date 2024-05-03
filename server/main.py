@@ -9,8 +9,11 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase
 from dataclasses import dataclass
 import time
+from flask_cors import CORS,cross_origin
+
 
 db = SQLAlchemy()
+
 
 logging.basicConfig(
     filename="main_server.log",
@@ -18,11 +21,11 @@ logging.basicConfig(
     format="%(asctime)s:%(levelname)s:%(message)s",
 )
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='temp',  static_url_path='')
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///project.db"
 db.init_app(app)
 socketio = SocketIO(app)
-
+CORS(app)
 
 @dataclass
 class User(db.Model):
@@ -45,14 +48,16 @@ class Image(db.Model):
     id : int
     image_path: str
     processed_image_path: str
+    likes: int
     
     id = db.Column(db.Integer, primary_key=True)
     image_path = db.Column(db.String(120), unique=True, nullable=False)
     processed_image_path = db.Column(db.String(120), unique=True, nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    likes = db.Column(db.Integer, unique=False, nullable=True)
 
     def __repr__(self):
-        return "<Image %r>" % self.image_path
+        return "<Image %r>" % self.image_path   
     
     def as_dict(self):
        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
@@ -73,8 +78,6 @@ def process_image():
     
     # try:
     #     image = Image.open(file)
-        
-
 
 # @socketio.on("math_req")
 # def handle_message(data):
@@ -97,6 +100,7 @@ def process_image(data):
     print(f"Lamport clock request completed at {rpc.lamport_timestamp}")
 
 @app.post("/image")
+@cross_origin(supports_credentials=True)
 def create_image():
     # receive form data with image and user id
     data = request.form
@@ -104,8 +108,8 @@ def create_image():
     file = request.files['image']
     temp_image_path = f"./temp/uploaded_image_{round(time.time())}.jpeg"
     file.save(temp_image_path)
-    
-    image = Image(image_path=temp_image_path, user_id=user_id)
+
+    image = Image(image_path=temp_image_path[7:],user_id=user_id)
     db.session.add(image)
     db.session.commit()
     return jsonify(image)
@@ -115,7 +119,22 @@ def get_images():
     images = Image.query.all()
     print(images)
     return jsonify(images)
-    
+
+@app.post("/image/like")
+@cross_origin(supports_credentials=True)
+def like_image():
+    # receive image id from the frontend
+    image_id = request.form['id']
+    image = Image.query.get(image_id)
+    if image:
+        if image.likes==None:
+            image.likes = 1
+        else:
+            image.likes += 1
+        db.session.commit()
+        return jsonify({'message': 'Image liked successfully'})
+    else:
+        return jsonify({'error': 'Image not found'}), 404
 
 @app.post("/login")
 def login():
@@ -155,12 +174,15 @@ def index():
 
 if __name__ == "__main__":
     print("Main server is running on port: 5000")
-    socketio.run(app,debug=True)
-    # app.run(debug=True)
+    # socketio.run(app,debug=True)
+    app.run(debug=True) 
+    # socketio.run(app, host='0.0.0.0', debug=True)
     # with app.app_context():
         # db.create_all()
         
     # create users
-    
+
+
+
     
     
