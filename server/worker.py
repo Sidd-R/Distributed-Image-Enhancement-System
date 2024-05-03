@@ -5,6 +5,7 @@ import sys
 # sys.path.append(
 #     os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir)))
 from concurrent import futures
+from image_utils.image_filter import ImageFilter
 import logging
 import grpc
 from protos import math_pb2
@@ -60,9 +61,11 @@ class ImageEnhancerServicer(image_enhance_pb2_grpc.ImageEnhancerServicer):
     
     def EnhanceImage(self, request, context):
         image_bytes = request.image_data
+        choice = request.choice
 
         # Decode the image using Pillow 
         image = Image.open(io.BytesIO(image_bytes))
+        # image = Image.open('wumpus.jpeg')
         
         num_parts = 4  
         width, height = image.size
@@ -95,7 +98,7 @@ class ImageEnhancerServicer(image_enhance_pb2_grpc.ImageEnhancerServicer):
             merged_image.paste(part, (0, i * part_height))
 
         # Convert merged image to black and white
-        merged_image = merged_image.convert('L')
+        # merged_image = merged_image.convert('L')
 
         # Convert merged image back to bytes
         with io.BytesIO() as output:
@@ -124,4 +127,5 @@ def serve():
 
 
 if __name__ == "__main__":
+
     serve()
