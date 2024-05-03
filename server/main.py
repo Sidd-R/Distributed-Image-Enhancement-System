@@ -62,9 +62,7 @@ class Image(db.Model):
     def as_dict(self):
        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
-rpc = RpcClient(0)
 
-lamport_clock = 0
 
 # receive image from client 
 @app.post("/process")
@@ -72,7 +70,6 @@ def process_image():
     file = request.files['image']
     temp_image_path = "./temp/uploaded_image.jpeg"
     file.save(temp_image_path)
-    # rpc = RpcClient(lamport_clock)
     process_image_path = rpc.enhance_image(temp_image_path)
     return process_image_path
     
@@ -88,16 +85,14 @@ def process_image():
     
 @socketio.on("process")
 def process_image(data):
-    print(f'Lamport clock at request received: {rpc.lamport_timestamp}')
     img_path = data['img']
     
     
     process_image_path = rpc.enhance_image(img_path)
     
-    socketio.emit('res',{
-        'clock': rpc.lamport_timestamp
-    })
-    print(f"Lamport clock request completed at {rpc.lamport_timestamp}")
+    # socketio.emit('res',{
+    #     'clock': rpc.lamport_timestamp
+    # })
 
 @app.post("/image")
 @cross_origin(supports_credentials=True)
@@ -108,8 +103,10 @@ def create_image():
     file = request.files['image']
     temp_image_path = f"./temp/uploaded_image_{round(time.time())}.jpeg"
     file.save(temp_image_path)
+    rpcClient = RpcClient()
+    processed_image_filename = rpcClient.enhance_image(temp_image_path)
 
-    image = Image(image_path=temp_image_path[7:],user_id=user_id)
+    image = Image(image_path=temp_image_path[7:],user_id=user_id, processed_image_path=processed_image_filename)
     db.session.add(image)
     db.session.commit()
     return jsonify(image)

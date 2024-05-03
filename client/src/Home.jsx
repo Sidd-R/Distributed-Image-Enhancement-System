@@ -28,6 +28,7 @@ function Home (){
 
       const user = await response.json();
       console.log('User signed up successfully:', user);
+      localStorage.setItem('user', JSON.stringify(user));
       // Optionally, you can redirect to another page or show a success message
       location.href = '/gallery';
     } catch (error) {
@@ -57,6 +58,8 @@ function Home (){
                 type="text"
                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                 placeholder="Enter Username"
+                value={username}
+                onChange={(event) => setUsername(event.target.value)}
             />
             </div>
         </div>
@@ -69,6 +72,8 @@ function Home (){
                 type="email"
                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                 placeholder="Enter email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
             />
 
             <span className="absolute inset-y-0 end-0 grid place-content-center px-4">

@@ -51,7 +51,6 @@ class RPCService(math_pb2_grpc.MathServiceServicer):
         return response
     
 class ImageEnhancerServicer(image_enhance_pb2_grpc.ImageEnhancerServicer):
-    lamport_timestamp = 0
     
     def process_part(self, part, processed_parts,i):
         # print(i)
@@ -74,8 +73,6 @@ class ImageEnhancerServicer(image_enhance_pb2_grpc.ImageEnhancerServicer):
         for i in range(num_parts):
             part = image.crop((0, i * part_height, width, (i + 1) * part_height))
             parts.append(part)
-        logging.info(f"image enhance request received for {request.id} at {self.lamport_timestamp}")
-        print(f"image enhance request received for {request.id} at {self.lamport_timestamp}")
 
         # Process parts concurrently
         processed_parts = []
@@ -98,19 +95,14 @@ class ImageEnhancerServicer(image_enhance_pb2_grpc.ImageEnhancerServicer):
             merged_image.paste(part, (0, i * part_height))
 
         # Convert merged image to black and white
-        # merged_image = merged_image.convert('L')
 
         # Convert merged image back to bytes
         with io.BytesIO() as output:
             merged_image.save(output, format='JPEG')
             merged_image_data = output.getvalue()
                 
-        self.lamport_timestamp = max(request.lamport_timestamp, self.lamport_timestamp) + 1
-        logging.info(f"image enhance request completed for {request.id} at {self.lamport_timestamp}")
-        print(f'image enhance request completed for {request.id} at {self.lamport_timestamp}')
-
         
-        return image_enhance_pb2.ImageResponse(image_data=merged_image_data,id=request.id, lamport_timestamp=self.lamport_timestamp)
+        return image_enhance_pb2.ImageResponse(image_data=merged_image_data,id=request.id)
 
 
 def serve():

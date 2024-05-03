@@ -232,7 +232,15 @@ function Gallery() {
           {tempImages.map((image, index) => (
               <li key={index}>
               <div className="relative group">
-                <a href={`http://localhost:5000/${image.image_path}`} className="block relative overflow-hidden">
+                <div style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  // flexWrap: 'wrap',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  gap: '10px',
+                }}>
+                <div className="block relative overflow-hidden">
                   <img
                     src={`http://localhost:5000/${image.image_path}`}
                     alt=""
@@ -257,7 +265,34 @@ function Gallery() {
                       {image.likes == null ? 0 : image.likes}
                     </button>
                   </div>
-                </a>
+                </div>
+                <div className="block relative overflow-hidden">
+                  <img
+                    src={`http://localhost:5000/${image.processed_image_path}`}
+                    alt=""
+                    className="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 bg-black bg-opacity-50">
+                    <button className="text-white font-bold text-lg">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6 mr-1"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 21l-1.453-1.388C5.24 15.37 2 12.35 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.85-3.24 6.87-8.547 11.112L12 21z"
+                        />
+                      </svg>
+                      {image.likes == null ? 0 : image.likes}
+                    </button>
+                  </div>
+                </div>
+                </div>
                 <button onClick={() => handleLike(image.id)} className="bg-red-500 text-white px-4 py-2 rounded-full absolute bottom-4 right-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

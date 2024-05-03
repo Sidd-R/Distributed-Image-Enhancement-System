@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import image_enhance_pb2 as image__enhance__pb2
+from . import image_enhance_pb2 as image__enhance__pb2
 
 
 class ImageEnhancerStub(object):
