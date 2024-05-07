@@ -82,12 +82,12 @@ class RpcClient:
     def __init__(self) -> None:
         self.id = 22
 
-    def enhance_image(self,image_path="./temp/wumpus.jpeg"):
+    def enhance_image(self,image_path="./temp/wumpus.jpeg",port=50051):
         # image_path = "./temp/wumpus.jpeg"
         with open(image_path, "rb") as f:
             image_data = f.read()
             
-            with grpc.insecure_channel("localhost:50051") as channel:
+            with grpc.insecure_channel(f"localhost:{port}") as channel:
                 stub = image_enhance_pb2_grpc.ImageEnhancerStub(channel)
                 request = image_enhance_pb2.ImageRequest(id="1", image_data=image_data)
                 response = stub.EnhanceImage(request)

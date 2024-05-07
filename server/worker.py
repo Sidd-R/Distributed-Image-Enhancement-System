@@ -101,7 +101,7 @@ class ImageEnhancerServicer(image_enhance_pb2_grpc.ImageEnhancerServicer):
             merged_image.save(output, format='JPEG')
             merged_image_data = output.getvalue()
                 
-        
+        print(f'image processed and stored')
         return image_enhance_pb2.ImageResponse(image_data=merged_image_data,id=request.id)
 
 

@@ -10,8 +10,8 @@ from sqlalchemy.orm import DeclarativeBase
 from dataclasses import dataclass
 import time
 from flask_cors import CORS,cross_origin
-
-
+import heapq
+from threading import Lock
 db = SQLAlchemy()
 
 
@@ -26,6 +26,8 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///project.db"
 db.init_app(app)
 socketio = SocketIO(app)
 CORS(app)
+
+mutex = Lock()
 
 @dataclass
 class User(db.Model):
@@ -93,6 +95,8 @@ def process_image(data):
     # socketio.emit('res',{
     #     'clock': rpc.lamport_timestamp
     # })
+    
+workers = [50051,50052,50053]
 
 @app.post("/image")
 @cross_origin(supports_credentials=True)
@@ -104,7 +108,11 @@ def create_image():
     temp_image_path = f"./temp/uploaded_image_{round(time.time())}.jpeg"
     file.save(temp_image_path)
     rpcClient = RpcClient()
-    processed_image_filename = rpcClient.enhance_image(temp_image_path)
+    
+    port = workers.pop()
+    workers.insert(0,port)
+    print(f"sent to worker {port}")
+    processed_image_filename = rpcClient.enhance_image(image_path=temp_image_path,port=port)
 
     image = Image(image_path=temp_image_path[7:],user_id=user_id, processed_image_path=processed_image_filename)
     db.session.add(image)
@@ -114,7 +122,7 @@ def create_image():
 @app.get("/image")
 def get_images():
     images = Image.query.all()
-    print(images)
+    # print(images)
     return jsonify(images)
 
 @app.post("/image/like")
@@ -122,6 +130,8 @@ def get_images():
 def like_image():
     # receive image id from the frontend
     image_id = request.form['id']
+    mutex.acquire(1)
+    print('mutex lock')
     image = Image.query.get(image_id)
     if image:
         if image.likes==None:
@@ -129,6 +139,9 @@ def like_image():
         else:
             image.likes += 1
         db.session.commit()
+        mutex.release()
+        print('mutex release')
+        
         return jsonify({'message': 'Image liked successfully'})
     else:
         return jsonify({'error': 'Image not found'}), 404
@@ -176,10 +189,3 @@ if __name__ == "__main__":
     # socketio.run(app, host='0.0.0.0', debug=True)
     # with app.app_context():
         # db.create_all()
-        
-    # create users
-
-
-
-    
-    

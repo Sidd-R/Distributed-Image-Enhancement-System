@@ -213,7 +213,9 @@ function Gallery() {
           <h2 className="text-xl font-bold text-gray-900 sm:text-3xl">Product Collection</h2>
         </header>
 
-        <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-8 gap-4 flex flex-wrap" style={{
+          width: '100vw'
+        }}>
           {/* Gallery items */}
           {/* <li>
               <a href="#" class="group block relative overflow-hidden">
@@ -229,9 +231,10 @@ function Gallery() {
                 </div>
               </a>
           </li> */}
+          
           {tempImages.map((image, index) => (
               <li key={index}>
-              <div className="relative group">
+              <div className="group w-96 relative">
                 <div style={{
                   display: 'flex',
                   flexDirection: 'row',
@@ -239,14 +242,20 @@ function Gallery() {
                   justifyContent: 'center',
                   alignItems: 'center',
                   gap: '10px',
-                }}>
-                <div className="block relative overflow-hidden">
+                  
+                }}  
+                className="border-gray-500 border p-3 rounded-lg bg-slate-50 "
+                >
+                <div className="block relative overflow-hidden rounded-md">
+                  <span className="absolute bg-slate-200 rounded-xl px-2 top-2 left-1">
+                    original
+                  </span>
                   <img
                     src={`http://localhost:5000/${image.image_path}`}
                     alt=""
-                    className="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
+                    className="h-48 w-full object-cover transition duration-500 hover:scale-105 sm:h-[450px] rounded-md"
                   />
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 bg-black bg-opacity-50">
+                  {/* <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 bg-black bg-opacity-50">
                     <button className="text-white font-bold text-lg">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -264,16 +273,21 @@ function Gallery() {
                       </svg>
                       {image.likes == null ? 0 : image.likes}
                     </button>
-                  </div>
+                  </div> */}
                 </div>
-                <div className="block relative overflow-hidden">
+                <div className="block relative overflow-hidden rounded-md">
+                <span className="absolute bg-slate-200 rounded-xl px-2 top-2 left-1">
+                    enhanced
+                  </span>
                   <img
                     src={`http://localhost:5000/${image.processed_image_path}`}
                     alt=""
-                    className="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
+                    className="h-[350px] w-full object-cover transition duration-500 hover:scale-105 sm:h-[450px] rounded-md"
                   />
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 bg-black bg-opacity-50">
-                    <button className="text-white font-bold text-lg">
+                  {/* <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 bg-black bg-opacity-50">
+                    <button className="text-white font-bold text-lg"
+                    onClick={() => handleLike(image.id)}
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-6 w-6 mr-1"
@@ -290,10 +304,11 @@ function Gallery() {
                       </svg>
                       {image.likes == null ? 0 : image.likes}
                     </button>
-                  </div>
+                  </div> */}
                 </div>
                 </div>
-                <button onClick={() => handleLike(image.id)} className="bg-red-500 text-white px-4 py-2 rounded-full absolute bottom-4 right-4">
+                <button onClick={() => handleLike(image.id)} className="bg-red-500 text-white px-4 py-2 rounded-full absolute bottom-4 right-4 flex gap-2">
+
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6"
@@ -308,6 +323,9 @@ function Gallery() {
                       d="M12 21l-1.453-1.388C5.24 15.37 2 12.35 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.85-3.24 6.87-8.547 11.112L12 21z"
                     />
                   </svg>
+                  <span>
+                    {image.likes == null ? 0 : image.likes}
+                  </span>
                 </button>
               </div>
             </li>             
