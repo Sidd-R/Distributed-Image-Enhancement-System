@@ -8,6 +8,9 @@ from protos import image_enhance_pb2
 import threading
 from PIL import Image
 import io
+import datetime
+import sys
+import time
 
 logging.basicConfig(
     filename="./logs/main_server.log",
@@ -76,27 +79,29 @@ logging.basicConfig(
 #     return result
 
 class RpcClient:
-    
     def __init__(self) -> None:
-        self.lamport_timestamp = 0
+        self.id = 22
 
-    def enhance_image(self):
-        image_path = "wumpus.jpeg"
+    def enhance_image(self,image_path="./temp/wumpus.jpeg",port=50051):
+        # image_path = "./temp/wumpus.jpeg"
         with open(image_path, "rb") as f:
             image_data = f.read()
             
-            with grpc.insecure_channel("localhost:50051") as channel:
+            with grpc.insecure_channel(f"localhost:{port}") as channel:
                 stub = image_enhance_pb2_grpc.ImageEnhancerStub(channel)
-                request = image_enhance_pb2.ImageRequest(id="1", image_data=image_data,lamport_timestamp=self.lamport_timestamp)
-                logging.info(f"image enhance request sent for {request.id}")
+                request = image_enhance_pb2.ImageRequest(id="1", image_data=image_data)
                 response = stub.EnhanceImage(request)
                 image = Image.open(io.BytesIO(response.image_data))
-                self.lamport_timestamp = max(self.lamport_timestamp,response.lamport_timestamp)
-                logging.info(f"image enhance response received for {request.id} at lamport timestamp {response.lamport_timestamp}")
                 
-                image.show()
-                # return response.image_path
+                # save image in processed_image folder with current timestamp
+                filename = f"processed_image_{round(time.time())}.jpeg"
+                processed_img_path = f"./temp/{filename}"
+                image.save(processed_img_path)    
+                
+                return filename
 
 if __name__ == "__main__":
     client = RpcClient()
-    client.enhance_image()
+    
+    while input("Do you want to enhance image? (y/n): ") == "y":
+        client.enhance_image()

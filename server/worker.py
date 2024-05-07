@@ -51,26 +51,22 @@ class RPCService(math_pb2_grpc.MathServiceServicer):
         return response
     
 class ImageEnhancerServicer(image_enhance_pb2_grpc.ImageEnhancerServicer):
-    lamport_timestamp = 0
     
-    def process_part(self, part, processed_parts, choice):
+    def process_part(self, part, processed_parts,i):
+        # print(i)
         # Convert part to black and white
-        # processed_part = part.convert('L')
-        # processed_parts.append(processed_part)
-        image_filter_instance = ImageFilter()
-        filtered_image = image_filter_instance.filter(image=part, choice=choice)
-        processed_parts.append(filtered_image)
+        processed_part = part.convert('L')
+        processed_parts.append((processed_part,i))
     
     def EnhanceImage(self, request, context):
-        logging.info(f"image enhance request received for {request.id}")
         image_bytes = request.image_data
         choice = request.choice
 
-        # Decode the image using Pillow (PIL)
+        # Decode the image using Pillow 
         image = Image.open(io.BytesIO(image_bytes))
         # image = Image.open('wumpus.jpeg')
         
-        num_parts = 4  # Example value, adjust as needed
+        num_parts = 4  
         width, height = image.size
         part_height = height // num_parts
         parts = []
@@ -81,13 +77,17 @@ class ImageEnhancerServicer(image_enhance_pb2_grpc.ImageEnhancerServicer):
         # Process parts concurrently
         processed_parts = []
         threads = []
-        for part in parts:
-            thread = threading.Thread(target=self.process_part, args=(part, processed_parts, choice))
+        for i, part in enumerate(parts):
+            thread = threading.Thread(target=self.process_part, args=(part, processed_parts,i))
             threads.append(thread)
             thread.start()
 
         for thread in threads:
             thread.join()
+            
+        processed_parts.sort(key=lambda x: x[1])
+
+        processed_parts = [x[0] for x in processed_parts]
 
         # Merge processed parts
         merged_image = Image.new('RGB', (width, height))
@@ -95,16 +95,14 @@ class ImageEnhancerServicer(image_enhance_pb2_grpc.ImageEnhancerServicer):
             merged_image.paste(part, (0, i * part_height))
 
         # Convert merged image to black and white
-        # merged_image = merged_image.convert('L')
 
         # Convert merged image back to bytes
         with io.BytesIO() as output:
             merged_image.save(output, format='JPEG')
             merged_image_data = output.getvalue()
                 
-        self.lamport_timestamp = max(request.lamport_timestamp, self.lamport_timestamp) + 1
-        
-        return image_enhance_pb2.ImageResponse(image_data=merged_image_data,id=request.id, lamport_timestamp=self.lamport_timestamp)
+        print(f'image processed and stored')
+        return image_enhance_pb2.ImageResponse(image_data=merged_image_data,id=request.id)
 
 
 def serve():
@@ -113,7 +111,6 @@ def serve():
     id = sys.argv[2] if sys.argv[2:] else "1"
 
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=2))
-    # math_pb2_grpc.add_MathServiceServicer_to_server(RPCService(), server)
     image_enhance_pb2_grpc.add_ImageEnhancerServicer_to_server(ImageEnhancerServicer(), server)
     server.add_insecure_port("[::]:" + PORT)
     server.start()
